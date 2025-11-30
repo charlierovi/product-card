@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import ProductCard from './components/ProductCard'; // ajusta la ruta si lo tienes en /components
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: 20, background: '#f5f6f8', minHeight: '100vh' }}>
+      <h1 style={{ textAlign: 'center', marginBottom: 20 }}>Demo ProductCard</h1>
+
+      {/* Disponible */}
+      <ProductCard initialSoldOut={false} />
+
+      {/* Esgotat */}
+      <ProductCard initialSoldOut={true} />
     </div>
   );
 }
-
-export default App;

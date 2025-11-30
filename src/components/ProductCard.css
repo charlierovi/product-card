@@ -1,0 +1,116 @@
+/* Estils Generals del Contenidor - MOBILE FIRST */
+.product-card {
+  /* 1. Layout apilat per defecte (mòbil) */
+  display: grid;
+  grid-template-columns: 1fr; /* 1 sola columna: imatge i info apilades */
+
+  /* Estil bàsic en mòbil */
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid #ddd;
+  background-color: white;
+  overflow: hidden;
+}
+
+/* Estructura interna de la columna d'informació (Grid Vertical) */
+.product-info {
+  padding: 15px;            /* padding de mòbil per defecte */
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 15px;
+}
+
+/* Imatge */
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Preservació de la ràtio d'aspecte */
+  display: block;
+}
+
+/* Botó base */
+.add-to-cart-btn {
+  align-self: end;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estil del botó quan el component estigui esgotat */
+.product-card--sold-out .add-to-cart-btn,
+.add-to-cart-btn[disabled] {
+  background-color: #bbb;
+  color: #eee;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.product-price-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.price-spacer {
+  flex-grow: 1;
+}
+
+.discount-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: #ffcc00;
+  color: #663300;
+  font-size: 0.85em;
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap; 
+}
+
+.current-price {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #cc0000;
+}
+
+.old-price {
+  font-size: 1em;
+  color: #666;
+  text-decoration: line-through;
+}
+
+/* Textos */
+.product-title {
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+.product-description {
+  color: #444;
+}
+
+/* 🔹 NOVA MEDIA QUERY MOBILE-FIRST: escriptori a partir de 601px */
+@media (min-width: 601px) {
+  .product-card {
+    /* Layout d'escriptori (dues columnes) */
+    grid-template-columns: 250px 1fr;
+
+    /* Estils “grans” només per pantalles grans */
+    max-width: 750px;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  .product-info {
+    padding: 20px; /* una mica més de padding en escriptori */
+  }
+
+  /* Si vols, en escriptori pots tornar a un layout de preus més compacte: */
+  .product-price-section {
+    justify-content: flex-start;
+  }
+}
